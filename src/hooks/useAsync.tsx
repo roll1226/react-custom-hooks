@@ -10,7 +10,7 @@ type UseAsyncReturn<T> = {
 
 type UseAsync = <T>(
   callback: AsyncCallback<T>,
-  dependencies: unknown[]
+  dependencies?: unknown[]
 ) => UseAsyncReturn<T>;
 
 export const useAsync: UseAsync = <T,>(

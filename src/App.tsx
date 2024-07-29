@@ -1,13 +1,14 @@
 import { useRef, useState } from "react";
 import "./App.css";
-import useArray from "./hooks/useArray";
-import useAsync from "./hooks/useAsync";
-import useClickOutside from "./hooks/useClickOutside";
+import { useArray } from "./hooks/useArray";
+import { useAsync } from "./hooks/useAsync";
+import { useClickOutside } from "./hooks/useClickOutside";
 import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
-import useDebounce from "./hooks/useDebounce";
-import useLongPress from "./hooks/useLongPress";
-import useStateWithValidation from "./hooks/useStateWithValidation";
-import useTimeout from "./hooks/useTimeout";
+import { useDebounce } from "./hooks/useDebounce";
+import { useLongPress } from "./hooks/useLongPress";
+import { useStateWithValidation } from "./hooks/useStateWithValidation";
+import { useTimeout } from "./hooks/useTimeout";
+import { useToggle } from "./hooks/useToggle";
 
 function App() {
   const [username, setUsername, isValid] = useStateWithValidation<string>(
@@ -51,6 +52,8 @@ function App() {
 
   const [count2, setCount2] = useState(10);
   useDebounce(() => alert(count2), 1000, [count2]);
+
+  const [toggle, toggleValue] = useToggle(false);
 
   return (
     <>
@@ -130,6 +133,13 @@ function App() {
       <div>
         <div>{count2}</div>
         <button onClick={() => setCount2((c) => c + 1)}>Increment</button>
+      </div>
+
+      <div>
+        <div>{toggle.toString()}</div>
+        <button onClick={toggleValue}>Toggle</button>
+        <button onClick={() => toggleValue(true)}>Make True</button>
+        <button onClick={() => toggleValue(false)}>Make False</button>
       </div>
     </>
   );
