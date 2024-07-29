@@ -6,6 +6,7 @@ import { useClickOutside } from "./hooks/useClickOutside";
 import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
 import { useDebounce } from "./hooks/useDebounce";
 import { useLongPress } from "./hooks/useLongPress";
+import { useRenderCount } from "./hooks/useRenderCount";
 import { useStateWithValidation } from "./hooks/useStateWithValidation";
 import { useTimeout } from "./hooks/useTimeout";
 import { useToggle } from "./hooks/useToggle";
@@ -54,6 +55,7 @@ function App() {
   useDebounce(() => alert(count2), 1000, [count2]);
 
   const [toggle, toggleValue] = useToggle(false);
+  const renderCount = useRenderCount();
 
   return (
     <>
@@ -136,6 +138,7 @@ function App() {
       </div>
 
       <div>
+        <div>{renderCount}</div>
         <div>{toggle.toString()}</div>
         <button onClick={toggleValue}>Toggle</button>
         <button onClick={() => toggleValue(true)}>Make True</button>
