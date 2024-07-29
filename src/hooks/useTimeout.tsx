@@ -7,12 +7,12 @@ type UseTimeoutReturn = {
   clear: () => void;
 };
 
-type UseTimeoutType = (
+type UseTimeout = (
   callback: CallbackFunction,
   delay: number | null
 ) => UseTimeoutReturn;
 
-export const useTimeout: UseTimeoutType = (callback, delay) => {
+export const useTimeout: UseTimeout = (callback, delay) => {
   const callbackRef = useRef<CallbackFunction>(callback);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {

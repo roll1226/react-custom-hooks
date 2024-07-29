@@ -8,12 +8,12 @@ type UseStateWithValidationReturn<T> = [
   boolean
 ];
 
-type UseStateWithValidationType = <T>(
+type UseStateWithValidation = <T>(
   validationFunc: ValidationFunction<T>,
   initialValue: T
 ) => UseStateWithValidationReturn<T>;
 
-export const useStateWithValidation: UseStateWithValidationType = <T,>(
+export const useStateWithValidation: UseStateWithValidation = <T,>(
   validationFunc: ValidationFunction<T>,
   initialValue: T
 ) => {

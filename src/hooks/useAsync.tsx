@@ -8,12 +8,12 @@ type UseAsyncReturn<T> = {
   value: T | undefined;
 };
 
-type UseAsyncType = <T>(
+type UseAsync = <T>(
   callback: AsyncCallback<T>,
   dependencies: unknown[]
 ) => UseAsyncReturn<T>;
 
-export const useAsync: UseAsyncType = <T,>(
+export const useAsync: UseAsync = <T,>(
   callback: AsyncCallback<T>,
   dependencies: unknown[] = []
 ) => {

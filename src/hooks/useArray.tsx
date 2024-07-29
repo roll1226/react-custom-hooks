@@ -10,9 +10,9 @@ type UseArrayReturn<T> = {
   clear: () => void;
 };
 
-type UseArrayType = <T>(defaultValue: T[]) => UseArrayReturn<T>;
+type UseArray = <T>(defaultValue: T[]) => UseArrayReturn<T>;
 
-export const useArray: UseArrayType = <T,>(
+export const useArray: UseArray = <T,>(
   defaultValue: T[]
 ): UseArrayReturn<T> => {
   const [array, setArray] = useState<T[]>(defaultValue);
