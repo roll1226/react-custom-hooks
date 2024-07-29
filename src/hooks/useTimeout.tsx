@@ -2,10 +2,17 @@ import { useCallback, useEffect, useRef } from "react";
 
 type CallbackFunction = () => void;
 
-export default function useTimeout(
+type UseTimeoutReturn = {
+  reset: () => void;
+  clear: () => void;
+};
+
+type UseTimeoutType = (
   callback: CallbackFunction,
   delay: number | null
-) {
+) => UseTimeoutReturn;
+
+export const useTimeout: UseTimeoutType = (callback, delay) => {
   const callbackRef = useRef<CallbackFunction>(callback);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {
@@ -30,4 +37,4 @@ export default function useTimeout(
     set();
   }, [clear, set]);
   return { reset, clear };
-}
+};

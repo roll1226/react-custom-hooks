@@ -2,10 +2,21 @@ import { useCallback, useState } from "react";
 
 type ValidationFunction<T> = (value: T) => boolean;
 
-export default function useStateWithValidation<T>(
+type UseStateWithValidationReturn<T> = [
+  T,
+  (nextState: T | ((prevState: T) => T)) => void,
+  boolean
+];
+
+type UseStateWithValidationType = <T>(
   validationFunc: ValidationFunction<T>,
   initialValue: T
-): [T, (nextState: T | ((prevState: T) => T)) => void, boolean] {
+) => UseStateWithValidationReturn<T>;
+
+export const useStateWithValidation: UseStateWithValidationType = <T,>(
+  validationFunc: ValidationFunction<T>,
+  initialValue: T
+) => {
   const [state, setState] = useState<T>(initialValue);
   const [isValid, setIsValid] = useState<boolean>(() => validationFunc(state));
 
@@ -22,4 +33,4 @@ export default function useStateWithValidation<T>(
   );
 
   return [state, onChange, isValid];
-}
+};

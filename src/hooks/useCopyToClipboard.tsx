@@ -1,12 +1,19 @@
 import { useState } from "react";
-import useTimeout from "./useTimeout";
+import { useTimeout } from "./useTimeout";
 
-interface CopyToClipboardOptions {
+type CopyToClipboardOptions = {
   debug?: boolean;
   message?: string;
-}
+};
 
-const copy = (text: string, options?: CopyToClipboardOptions): boolean => {
+type CopyType = (text: string, options?: CopyToClipboardOptions) => boolean;
+
+type UseCopyToClipboard = () => [
+  (text: string, options?: CopyToClipboardOptions) => void,
+  { value: string | undefined; success: boolean | undefined }
+];
+
+const copy: CopyType = (text, options) => {
   try {
     navigator.clipboard.writeText(text);
     return true;
@@ -18,14 +25,11 @@ const copy = (text: string, options?: CopyToClipboardOptions): boolean => {
   }
 };
 
-export const useCopyToClipboard = (): [
-  (text: string, options?: CopyToClipboardOptions) => void,
-  { value: string | undefined; success: boolean | undefined }
-] => {
-  const { reset } = useTimeout(() => setSuccess(false), 3000);
-
+export const useCopyToClipboard: UseCopyToClipboard = () => {
   const [value, setValue] = useState<string>();
   const [success, setSuccess] = useState<boolean>();
+
+  const { reset } = useTimeout(() => setSuccess(false), 3000);
 
   const copyToClipboard = (text: string, options?: CopyToClipboardOptions) => {
     const result = copy(text, options);

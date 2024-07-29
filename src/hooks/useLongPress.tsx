@@ -1,16 +1,22 @@
 import { MutableRefObject, useEffect } from "react";
-import useEffectOnce from "./useEffectOnce";
-import useTimeout from "./useTimeout";
+import { useEffectOnce } from "./useEffectOnce";
+import { useTimeout } from "./useTimeout";
 
-interface UseLongPressOptions {
+type UseLongPressOptions = {
   delay?: number;
-}
+};
 
-export default function useLongPress<T extends HTMLElement>(
+type UseLongPress = <T extends HTMLElement>(
+  ref: MutableRefObject<T | null>,
+  cb: () => void,
+  { delay }: UseLongPressOptions
+) => void;
+
+export const useLongPress: UseLongPress = <T extends HTMLElement>(
   ref: MutableRefObject<T | null>,
   cb: () => void,
   { delay = 250 }: UseLongPressOptions = {}
-) {
+) => {
   const { reset, clear } = useTimeout(cb, delay);
 
   useEffectOnce(clear);
@@ -36,4 +42,4 @@ export default function useLongPress<T extends HTMLElement>(
       element.removeEventListener("touchend", handleTouchEnd);
     };
   }, [ref, reset, clear]);
-}
+};

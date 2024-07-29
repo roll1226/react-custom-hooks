@@ -1,10 +1,15 @@
 import { MutableRefObject } from "react";
-import useEventListener from "./useEventListener";
+import { useEventListener } from "./useEventListener";
 
-export default function useClickOutside<T extends HTMLElement>(
+type UseClickOutsideType = <T extends HTMLElement>(
   ref: MutableRefObject<T | null>,
   cb: (event: MouseEvent) => void
-) {
+) => void;
+
+export const useClickOutside: UseClickOutsideType = <T extends HTMLElement>(
+  ref: MutableRefObject<T | null>,
+  cb: (event: MouseEvent) => void
+) => {
   useEventListener(
     "click",
     (e: MouseEvent) => {
@@ -14,4 +19,4 @@ export default function useClickOutside<T extends HTMLElement>(
     },
     document
   );
-}
+};

@@ -2,10 +2,21 @@ import { useCallback, useEffect, useState } from "react";
 
 type AsyncCallback<T> = () => Promise<T>;
 
-export default function useAsync<T>(
+type UseAsyncReturn<T> = {
+  loading: boolean;
+  error: Error | undefined;
+  value: T | undefined;
+};
+
+type UseAsyncType = <T>(
+  callback: AsyncCallback<T>,
+  dependencies: unknown[]
+) => UseAsyncReturn<T>;
+
+export const useAsync: UseAsyncType = <T,>(
   callback: AsyncCallback<T>,
   dependencies: unknown[] = []
-) {
+) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | undefined>(undefined);
   const [value, setValue] = useState<T | undefined>(undefined);
@@ -26,4 +37,4 @@ export default function useAsync<T>(
   }, [callbackMemoized]);
 
   return { loading, error, value };
-}
+};

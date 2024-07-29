@@ -1,15 +1,16 @@
 import { DependencyList, useEffect } from "react";
-import useEffectOnce from "./useEffectOnce";
-import useTimeout from "./useTimeout";
+import { useEffectOnce } from "./useEffectOnce";
+import { useTimeout } from "./useTimeout";
 
-// 型定義
 type CallbackFunction = () => void;
 
-export default function useDebounce(
+type UseDebounce = (
   callback: CallbackFunction,
   delay: number,
   dependencies: DependencyList
-) {
+) => void;
+
+export const useDebounce: UseDebounce = (callback, delay, dependencies) => {
   const { reset, clear } = useTimeout(callback, delay);
 
   useEffect(() => {
@@ -18,4 +19,4 @@ export default function useDebounce(
   }, [...dependencies, reset]);
 
   useEffectOnce(clear);
-}
+};

@@ -1,6 +1,20 @@
 import { useState } from "react";
 
-export default function useArray<T>(defaultValue: T[]) {
+type UseArrayReturn<T> = {
+  array: T[];
+  set: React.Dispatch<React.SetStateAction<T[]>>;
+  push: (element: T) => void;
+  filter: (callback: (value: T, index: number, array: T[]) => boolean) => void;
+  update: (index: number, newElement: T) => void;
+  remove: (index: number) => void;
+  clear: () => void;
+};
+
+type UseArrayType = <T>(defaultValue: T[]) => UseArrayReturn<T>;
+
+export const useArray: UseArrayType = <T,>(
+  defaultValue: T[]
+): UseArrayReturn<T> => {
   const [array, setArray] = useState<T[]>(defaultValue);
 
   const push = (element: T) => {
@@ -30,4 +44,4 @@ export default function useArray<T>(defaultValue: T[]) {
   };
 
   return { array, set: setArray, push, filter, update, remove, clear };
-}
+};
