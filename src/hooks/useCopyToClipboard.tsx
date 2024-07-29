@@ -8,10 +8,12 @@ type CopyToClipboardOptions = {
 
 type CopyType = (text: string, options?: CopyToClipboardOptions) => boolean;
 
-type UseCopyToClipboard = () => [
+type UseCopyToClipboardReturn = [
   (text: string, options?: CopyToClipboardOptions) => void,
   { value: string | undefined; success: boolean | undefined }
-];
+]
+
+type UseCopyToClipboard = () =>  UseCopyToClipboardReturn;
 
 const copy: CopyType = (text, options) => {
   try {
