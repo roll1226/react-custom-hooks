@@ -6,14 +6,14 @@ type UseLongPressOptions = {
   delay?: number;
 };
 
-type UseLongPress = <T extends HTMLElement>(
-  ref: MutableRefObject<T | null>,
+type UseLongPress = <E extends HTMLElement>(
+  ref: MutableRefObject<E | null>,
   cb: () => void,
   { delay }: UseLongPressOptions
 ) => void;
 
-export const useLongPress: UseLongPress = <T extends HTMLElement>(
-  ref: MutableRefObject<T | null>,
+export const useLongPress: UseLongPress = <E extends HTMLElement>(
+  ref: MutableRefObject<E | null>,
   cb: () => void,
   { delay = 250 }: UseLongPressOptions = {}
 ) => {
