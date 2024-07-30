@@ -7,6 +7,7 @@ import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
 import { useDebounce } from "./hooks/useDebounce";
 import { useHover } from "./hooks/useHover";
 import { useLongPress } from "./hooks/useLongPress";
+import { useOnlineStatus } from "./hooks/useOnlineStatus";
 import { useRenderCount } from "./hooks/useRenderCount";
 import { useStateWithValidation } from "./hooks/useStateWithValidation";
 import { useTimeout } from "./hooks/useTimeout";
@@ -61,6 +62,8 @@ function App() {
   const hoverRef = useRef<HTMLDivElement | null>(null);
   const isHovered = useHover(hoverRef);
 
+  const online = useOnlineStatus();
+
   return (
     <>
       <div>Valid: {isValid.toString()}</div>
@@ -77,14 +80,12 @@ function App() {
           height: "100px",
         }}
       />
-
       <div>
         <div>{count}</div>
         <button onClick={() => setCount((c) => c + 1)}>Increment</button>
         <button onClick={clear}>Clear Timeout</button>
         <button onClick={reset}>Reset Timeout</button>
       </div>
-
       <div>
         <div>{array.join(", ")}</div>
         <button onClick={() => push(7)}>Add 7</button>
@@ -96,13 +97,11 @@ function App() {
         <button onClick={() => set([1, 2])}>Set To 1, 2</button>
         <button onClick={arrayClear}>Clear</button>
       </div>
-
       <div>
         <div>Loading: {loading.toString()}</div>
         <div>{JSON.stringify(error)}</div>
         <div>{JSON.stringify(value)}</div>
       </div>
-
       <div>
         <button
           onClick={(e) => {
@@ -128,19 +127,16 @@ function App() {
           <span>Modal</span>
         </div>
       </div>
-
       <div>
         <button onClick={() => copyToClipboard("This was copied")}>
           {success ? "Copied" : "Copy Text"}
         </button>
         <input type="text" />
       </div>
-
       <div>
         <div>{count2}</div>
         <button onClick={() => setCount2((c) => c + 1)}>Increment</button>
       </div>
-
       <div>
         <div>{renderCount}</div>
         <div>{toggle.toString()}</div>
@@ -148,7 +144,6 @@ function App() {
         <button onClick={() => toggleValue(true)}>Make True</button>
         <button onClick={() => toggleValue(false)}>Make False</button>
       </div>
-
       <div
         ref={hoverRef}
         style={{
@@ -157,6 +152,8 @@ function App() {
           height: "100px",
         }}
       />
+
+      <div>{online.toString()}</div>
     </>
   );
 }

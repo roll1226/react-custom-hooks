@@ -5,7 +5,7 @@ type EventType = keyof WindowEventMap;
 type UseEventListener = <K extends EventType>(
   eventType: K,
   callback: (event: WindowEventMap[K]) => void,
-  element: Window | Document | HTMLElement | RefObject<HTMLElement | null>
+  element?: Window | Document | HTMLElement | RefObject<HTMLElement | null>
 ) => void;
 
 export const useEventListener: UseEventListener = <K extends EventType>(
