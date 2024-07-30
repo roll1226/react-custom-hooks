@@ -5,6 +5,7 @@ import { useAsync } from "./hooks/useAsync";
 import { useClickOutside } from "./hooks/useClickOutside";
 import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
 import { useDebounce } from "./hooks/useDebounce";
+import { useHover } from "./hooks/useHover";
 import { useLongPress } from "./hooks/useLongPress";
 import { useRenderCount } from "./hooks/useRenderCount";
 import { useStateWithValidation } from "./hooks/useStateWithValidation";
@@ -56,6 +57,9 @@ function App() {
 
   const [toggle, toggleValue] = useToggle(false);
   const renderCount = useRenderCount();
+
+  const hoverRef = useRef<HTMLDivElement | null>(null);
+  const isHovered = useHover(hoverRef);
 
   return (
     <>
@@ -144,6 +148,15 @@ function App() {
         <button onClick={() => toggleValue(true)}>Make True</button>
         <button onClick={() => toggleValue(false)}>Make False</button>
       </div>
+
+      <div
+        ref={hoverRef}
+        style={{
+          backgroundColor: isHovered ? "blue" : "red",
+          width: "100px",
+          height: "100px",
+        }}
+      />
     </>
   );
 }
