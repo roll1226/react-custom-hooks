@@ -8,6 +8,7 @@ import { useDebounce } from "./hooks/useDebounce";
 import { useHover } from "./hooks/useHover";
 import { useLongPress } from "./hooks/useLongPress";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
+import { useOnScreen } from "./hooks/useOnScreen";
 import { useRenderCount } from "./hooks/useRenderCount";
 import { useStateWithValidation } from "./hooks/useStateWithValidation";
 import { useTimeout } from "./hooks/useTimeout";
@@ -63,6 +64,9 @@ function App() {
   const isHovered = useHover(hoverRef);
 
   const online = useOnlineStatus();
+
+  const headerTwoRef = useRef<HTMLDivElement | null>(null);
+  const visible = useOnScreen(headerTwoRef, "-100px");
 
   return (
     <>
@@ -154,6 +158,13 @@ function App() {
       />
 
       <div>{online.toString()}</div>
+
+      <div>
+        <h1>Header</h1>
+        <div>...</div>
+        <h1 ref={headerTwoRef}>Header 2 {visible && "(Visible)"}</h1>
+        <div>...</div>
+      </div>
     </>
   );
 }
