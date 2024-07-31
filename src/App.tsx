@@ -7,6 +7,7 @@ import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
 import { useDebounce } from "./hooks/useDebounce";
 import { useFetch } from "./hooks/useFetch";
 import { useHover } from "./hooks/useHover";
+import { useLocation } from "./hooks/useLocation";
 import { useLongPress } from "./hooks/useLongPress";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
 import { useOnScreen } from "./hooks/useOnScreen";
@@ -82,6 +83,11 @@ function App() {
   } = useFetch(`https://jsonplaceholder.typicode.com/todos/${fetchId}`, {}, [
     fetchId,
   ]);
+  const {
+    loading: locationLoading,
+    error: locationError,
+    data: locationData,
+  } = useLocation();
 
   return (
     <>
@@ -202,6 +208,14 @@ function App() {
         <div>Loading: {fetchLoading.toString()}</div>
         <div>{JSON.stringify(fetchError, null, 2)}</div>
         <div>{JSON.stringify(fetchValue, null, 2)}</div>
+      </div>
+
+      <div>
+        <div>Loading: {locationLoading.toString()}</div>
+        <div>Error: {locationError?.message}</div>
+        <div>
+          {locationData?.latitude} x {locationData?.longitude}
+        </div>
       </div>
     </>
   );
