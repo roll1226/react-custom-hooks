@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 type AsyncCallback<T> = () => Promise<T>;
 
-type UseAsyncReturn<T> = {
+export type UseAsyncReturn<T> = {
   loading: boolean;
   error: Error | undefined;
   value: T | undefined;

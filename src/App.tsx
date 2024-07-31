@@ -5,6 +5,7 @@ import { useAsync } from "./hooks/useAsync";
 import { useClickOutside } from "./hooks/useClickOutside";
 import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
 import { useDebounce } from "./hooks/useDebounce";
+import { useFetch } from "./hooks/useFetch";
 import { useHover } from "./hooks/useHover";
 import { useLongPress } from "./hooks/useLongPress";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
@@ -72,6 +73,15 @@ function App() {
   const [checkCount, setCheckCount] = useState(0);
   const [name, setName] = useState("Sergey");
   const previousCount = usePrevious(checkCount);
+
+  const [fetchId, setFetchId] = useState(1);
+  const {
+    loading: fetchLoading,
+    error: fetchError,
+    value: fetchValue,
+  } = useFetch(`https://jsonplaceholder.typicode.com/todos/${fetchId}`, {}, [
+    fetchId,
+  ]);
 
   return (
     <>
@@ -182,6 +192,16 @@ function App() {
           Increment
         </button>
         <button onClick={() => setName("John")}>Change Name</button>
+      </div>
+
+      <div>
+        <div>{fetchId}</div>
+        <button onClick={() => setFetchId((currentId) => currentId + 1)}>
+          Increment ID
+        </button>
+        <div>Loading: {fetchLoading.toString()}</div>
+        <div>{JSON.stringify(fetchError, null, 2)}</div>
+        <div>{JSON.stringify(fetchValue, null, 2)}</div>
       </div>
     </>
   );
