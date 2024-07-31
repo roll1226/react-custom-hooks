@@ -9,6 +9,7 @@ import { useHover } from "./hooks/useHover";
 import { useLongPress } from "./hooks/useLongPress";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
 import { useOnScreen } from "./hooks/useOnScreen";
+import { usePrevious } from "./hooks/usePrevious";
 import { useRenderCount } from "./hooks/useRenderCount";
 import { useStateWithValidation } from "./hooks/useStateWithValidation";
 import { useTimeout } from "./hooks/useTimeout";
@@ -67,6 +68,10 @@ function App() {
 
   const headerTwoRef = useRef<HTMLDivElement | null>(null);
   const visible = useOnScreen(headerTwoRef, "-100px");
+
+  const [checkCount, setCheckCount] = useState(0);
+  const [name, setName] = useState("Sergey");
+  const previousCount = usePrevious(checkCount);
 
   return (
     <>
@@ -164,6 +169,19 @@ function App() {
         <div>...</div>
         <h1 ref={headerTwoRef}>Header 2 {visible && "(Visible)"}</h1>
         <div>...</div>
+      </div>
+
+      <div>
+        <div>
+          {checkCount} - {previousCount}
+        </div>
+        <div>{name}</div>
+        <button
+          onClick={() => setCheckCount((currentCount) => currentCount + 1)}
+        >
+          Increment
+        </button>
+        <button onClick={() => setName("John")}>Change Name</button>
       </div>
     </>
   );
