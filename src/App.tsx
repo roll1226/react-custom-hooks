@@ -7,6 +7,7 @@ import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
 import { useDebounce } from "./hooks/useDebounce";
 import { useFetch } from "./hooks/useFetch";
 import { useHover } from "./hooks/useHover";
+import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
 import { useLocation } from "./hooks/useLocation";
 import { useLongPress } from "./hooks/useLongPress";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
@@ -88,6 +89,12 @@ function App() {
     error: locationError,
     data: locationData,
   } = useLocation();
+
+  const [sessionName, setSessionName, removeSessionName] = useSessionStorage(
+    "name",
+    "Sergey"
+  );
+  const [age, setAge, removeAge] = useLocalStorage("age", 26);
 
   return (
     <>
@@ -216,6 +223,16 @@ function App() {
         <div>
           {locationData?.latitude} x {locationData?.longitude}
         </div>
+      </div>
+
+      <div>
+        <div>
+          {sessionName} - {age}
+        </div>
+        <button onClick={() => setSessionName("John")}>Set Name</button>
+        <button onClick={() => setAge(40)}>Set Age</button>
+        <button onClick={removeSessionName}>Remove Name</button>
+        <button onClick={removeAge}>Remove Age</button>
       </div>
     </>
   );
