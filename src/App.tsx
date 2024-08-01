@@ -7,14 +7,15 @@ import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
 import { useDebounce } from "./hooks/useDebounce";
 import { useFetch } from "./hooks/useFetch";
 import { useHover } from "./hooks/useHover";
-import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
 import { useLocation } from "./hooks/useLocation";
 import { useLongPress } from "./hooks/useLongPress";
+import { useMediaQuery } from "./hooks/useMediaQuery";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
 import { useOnScreen } from "./hooks/useOnScreen";
 import { usePrevious } from "./hooks/usePrevious";
 import { useRenderCount } from "./hooks/useRenderCount";
 import { useStateWithValidation } from "./hooks/useStateWithValidation";
+import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
 import { useTimeout } from "./hooks/useTimeout";
 import { useToggle } from "./hooks/useToggle";
 
@@ -95,6 +96,8 @@ function App() {
     "Sergey"
   );
   const [age, setAge, removeAge] = useLocalStorage("age", 26);
+
+  const isLarge = useMediaQuery("(min-width: 600px)");
 
   return (
     <>
@@ -234,6 +237,8 @@ function App() {
         <button onClick={removeSessionName}>Remove Name</button>
         <button onClick={removeAge}>Remove Age</button>
       </div>
+
+      <div>Large: {isLarge.toString()}</div>
     </>
   );
 }

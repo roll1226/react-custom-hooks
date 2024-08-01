@@ -1,20 +1,29 @@
 import { RefObject, useEffect, useRef } from "react";
 
-type EventType = keyof WindowEventMap;
+type EventType = keyof WindowEventMap | "change";
 
-type UseEventListener = <K extends EventType>(
+type UseEventListener = <K extends EventType, E extends Event>(
   eventType: K,
-  callback: (event: WindowEventMap[K]) => void,
-  element?: Window | Document | HTMLElement | RefObject<HTMLElement | null>
+  callback: (event: E) => void,
+  element?:
+    | Window
+    | Document
+    | HTMLElement
+    | MediaQueryList
+    | RefObject<HTMLElement | null>
 ) => void;
 
-export const useEventListener: UseEventListener = <K extends EventType>(
+export const useEventListener: UseEventListener = <
+  K extends EventType,
+  E extends Event
+>(
   eventType: K,
-  callback: (event: WindowEventMap[K]) => void,
+  callback: (event: E) => void,
   element:
     | Window
     | Document
     | HTMLElement
+    | MediaQueryList
     | RefObject<HTMLElement | null> = window
 ) => {
   const callbackRef = useRef(callback);
@@ -24,11 +33,15 @@ export const useEventListener: UseEventListener = <K extends EventType>(
   }, [callback]);
 
   useEffect(() => {
-    const targetElement: HTMLElement | Window | Document | null =
-      element && "current" in element ? element.current : element;
+    const targetElement:
+      | HTMLElement
+      | Window
+      | Document
+      | MediaQueryList
+      | null = element && "current" in element ? element.current : element;
     if (!targetElement) return;
 
-    const handler = (event: WindowEventMap[K]) => callbackRef.current(event);
+    const handler = (event: E) => callbackRef.current(event);
 
     targetElement.addEventListener(eventType, handler as EventListener);
     return () =>
