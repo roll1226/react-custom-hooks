@@ -15,6 +15,7 @@ import { useOnScreen } from "./hooks/useOnScreen";
 import { usePrevious } from "./hooks/usePrevious";
 import { useRenderCount } from "./hooks/useRenderCount";
 import { useScript } from "./hooks/useScript";
+import { useStateWithHistory } from "./hooks/useStateWithHistory";
 import { useStateWithValidation } from "./hooks/useStateWithValidation";
 import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
 import { useTimeout } from "./hooks/useTimeout";
@@ -75,7 +76,7 @@ function App() {
   const visible = useOnScreen(headerTwoRef, "-100px");
 
   const [checkCount, setCheckCount] = useState(0);
-  const [name, setName] = useState("Sergey");
+  const [name, setName] = useState("roll1226");
   const previousCount = usePrevious(checkCount);
 
   const [fetchId, setFetchId] = useState(1);
@@ -94,7 +95,7 @@ function App() {
 
   const [sessionName, setSessionName, removeSessionName] = useSessionStorage(
     "name",
-    "Sergey"
+    "roll1226"
   );
   const [age, setAge, removeAge] = useLocalStorage("age", 26);
 
@@ -103,6 +104,13 @@ function App() {
   const { loading: scriptLoading, error: scriptError } = useScript(
     "https://code.jquery.com/jquery-3.6.0.min.js"
   );
+
+  const [
+    historyCount,
+    setHistoryCount,
+    { history, pointer, back, forward, go },
+  ] = useStateWithHistory(1);
+  const [historyName, setHistoryName] = useState("roll1226");
 
   return (
     <>
@@ -245,9 +253,28 @@ function App() {
 
       <div>Large: {isLarge.toString()}</div>
 
-      {scriptLoading && <div>Loading</div>}
-      {scriptError && <div>Error</div>}
-      {!scriptLoading && !scriptError && <div>load script</div>}
+      <div>
+        {scriptLoading && <div>Loading</div>}
+        {scriptError && <div>Error</div>}
+        {!scriptLoading && !scriptError && <div>load script</div>}
+      </div>
+
+      <div>
+        <div>{historyCount}</div>
+        <div>{history.join(", ")}</div>
+        <div>Pointer - {pointer}</div>
+        <div>{historyName}</div>
+        <button onClick={() => setHistoryCount((currentCount) => currentCount * 2)}>
+          Double
+        </button>
+        <button onClick={() => setHistoryCount((currentCount) => currentCount + 1)}>
+          Increment
+        </button>
+        <button onClick={back}>Back</button>
+        <button onClick={forward}>Forward</button>
+        <button onClick={() => go(2)}>Go To Index 2</button>
+        <button onClick={() => setHistoryName("John")}>Change Name</button>
+      </div>
     </>
   );
 }
