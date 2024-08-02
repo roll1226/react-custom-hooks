@@ -14,6 +14,7 @@ import { useOnlineStatus } from "./hooks/useOnlineStatus";
 import { useOnScreen } from "./hooks/useOnScreen";
 import { usePrevious } from "./hooks/usePrevious";
 import { useRenderCount } from "./hooks/useRenderCount";
+import { useScript } from "./hooks/useScript";
 import { useStateWithValidation } from "./hooks/useStateWithValidation";
 import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
 import { useTimeout } from "./hooks/useTimeout";
@@ -98,6 +99,10 @@ function App() {
   const [age, setAge, removeAge] = useLocalStorage("age", 26);
 
   const isLarge = useMediaQuery("(min-width: 600px)");
+
+  const { loading: scriptLoading, error: scriptError } = useScript(
+    "https://code.jquery.com/jquery-3.6.0.min.js"
+  );
 
   return (
     <>
@@ -239,6 +244,10 @@ function App() {
       </div>
 
       <div>Large: {isLarge.toString()}</div>
+
+      {scriptLoading && <div>Loading</div>}
+      {scriptError && <div>Error</div>}
+      {!scriptLoading && !scriptError && <div>load script</div>}
     </>
   );
 }
