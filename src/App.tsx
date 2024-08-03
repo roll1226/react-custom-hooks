@@ -22,6 +22,7 @@ import { useTimeout } from "./hooks/useTimeout";
 import { useToggle } from "./hooks/useToggle";
 import { useTranslation } from "./hooks/useTranslation";
 import { useUpdateEffect } from "./hooks/useUpdateEffect";
+import { useWindowSize } from "./hooks/useWindowSize";
 
 function App() {
   const [username, setUsername, isValid] = useStateWithValidation<string>(
@@ -118,6 +119,8 @@ function App() {
 
   const [updateCount, setUpdateCount] = useState(0);
   useUpdateEffect(() => console.log(updateCount), [updateCount]);
+
+  const { width, height } = useWindowSize();
 
   return (
     <>
@@ -302,6 +305,10 @@ function App() {
       <div>
         <div>{updateCount}</div>
         <button onClick={() => setUpdateCount((c) => c + 1)}>Increment</button>
+      </div>
+
+      <div>
+        {width} x {height}
       </div>
     </>
   );
