@@ -20,6 +20,7 @@ import { useStateWithValidation } from "./hooks/useStateWithValidation";
 import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
 import { useTimeout } from "./hooks/useTimeout";
 import { useToggle } from "./hooks/useToggle";
+import { useTranslation } from "./hooks/useTranslation";
 
 function App() {
   const [username, setUsername, isValid] = useStateWithValidation<string>(
@@ -111,6 +112,8 @@ function App() {
     { history, pointer, back, forward, go },
   ] = useStateWithHistory(1);
   const [historyName, setHistoryName] = useState("roll1226");
+
+  const { language, setLanguage, setFallbackLanguage, t } = useTranslation();
 
   return (
     <>
@@ -264,16 +267,32 @@ function App() {
         <div>{history.join(", ")}</div>
         <div>Pointer - {pointer}</div>
         <div>{historyName}</div>
-        <button onClick={() => setHistoryCount((currentCount) => currentCount * 2)}>
+        <button
+          onClick={() => setHistoryCount((currentCount) => currentCount * 2)}
+        >
           Double
         </button>
-        <button onClick={() => setHistoryCount((currentCount) => currentCount + 1)}>
+        <button
+          onClick={() => setHistoryCount((currentCount) => currentCount + 1)}
+        >
           Increment
         </button>
         <button onClick={back}>Back</button>
         <button onClick={forward}>Forward</button>
         <button onClick={() => go(2)}>Go To Index 2</button>
         <button onClick={() => setHistoryName("John")}>Change Name</button>
+      </div>
+
+      <div>
+        <div>{language}</div>
+        <div>{t("hi") as string}</div>
+        <div>{t("bye") as string}</div>
+        <div>{t("nested.value") as string}</div>
+        <button onClick={() => setLanguage("ja")}>Change To Japanese</button>
+        <button onClick={() => setLanguage("en")}>Change To English</button>
+        <button onClick={() => setFallbackLanguage("ja")}>
+          Change FB Lang
+        </button>
       </div>
     </>
   );
