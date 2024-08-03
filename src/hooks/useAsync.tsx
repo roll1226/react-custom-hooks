@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { DependencyList, useCallback, useEffect, useState } from "react";
 
 type AsyncCallback<T> = () => Promise<T>;
 
@@ -10,12 +10,12 @@ export type UseAsyncReturn<T> = {
 
 type UseAsync = <T>(
   callback: AsyncCallback<T>,
-  dependencies?: unknown[]
+  dependencies?: DependencyList
 ) => UseAsyncReturn<T>;
 
 export const useAsync: UseAsync = <T,>(
   callback: AsyncCallback<T>,
-  dependencies: unknown[] = []
+  dependencies: DependencyList = []
 ) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | undefined>(undefined);

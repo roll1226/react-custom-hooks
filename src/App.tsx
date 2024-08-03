@@ -21,6 +21,7 @@ import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
 import { useTimeout } from "./hooks/useTimeout";
 import { useToggle } from "./hooks/useToggle";
 import { useTranslation } from "./hooks/useTranslation";
+import { useUpdateEffect } from "./hooks/useUpdateEffect";
 
 function App() {
   const [username, setUsername, isValid] = useStateWithValidation<string>(
@@ -114,6 +115,9 @@ function App() {
   const [historyName, setHistoryName] = useState("roll1226");
 
   const { language, setLanguage, setFallbackLanguage, t } = useTranslation();
+
+  const [updateCount, setUpdateCount] = useState(0);
+  useUpdateEffect(() => console.log(updateCount), [updateCount]);
 
   return (
     <>
@@ -293,6 +297,11 @@ function App() {
         <button onClick={() => setFallbackLanguage("ja")}>
           Change FB Lang
         </button>
+      </div>
+
+      <div>
+        <div>{updateCount}</div>
+        <button onClick={() => setUpdateCount((c) => c + 1)}>Increment</button>
       </div>
     </>
   );
