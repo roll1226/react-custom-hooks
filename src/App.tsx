@@ -23,8 +23,11 @@ import { useToggle } from "./hooks/useToggle";
 import { useTranslation } from "./hooks/useTranslation";
 import { useUpdateEffect } from "./hooks/useUpdateEffect";
 import { useWindowSize } from "./hooks/useWindowSize";
+import useAppRoutes from "./routes";
 
 function App() {
+  const router = useAppRoutes();
+
   const [username, setUsername, isValid] = useStateWithValidation<string>(
     (name) => name.length > 5,
     ""
@@ -124,6 +127,7 @@ function App() {
 
   return (
     <>
+      {router}
       <div>Valid: {isValid.toString()}</div>
       <input
         type="text"
