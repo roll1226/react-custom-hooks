@@ -16,7 +16,6 @@ import { usePrevious } from "./hooks/usePrevious";
 import { useRenderCount } from "./hooks/useRenderCount";
 import { useScript } from "./hooks/useScript";
 import { useStateWithHistory } from "./hooks/useStateWithHistory";
-import { useStateWithValidation } from "./hooks/useStateWithValidation";
 import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
 import { useTimeout } from "./hooks/useTimeout";
 import { useToggle } from "./hooks/useToggle";
@@ -24,14 +23,10 @@ import { useTranslation } from "./hooks/useTranslation";
 import { useUpdateEffect } from "./hooks/useUpdateEffect";
 import { useWindowSize } from "./hooks/useWindowSize";
 import useAppRoutes from "./routes";
+import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-  const [username, setUsername, isValid] = useStateWithValidation<string>(
-    (name) => name.length > 5,
-    ""
-  );
 
   const [count, setCount] = useState(10);
   const { clear, reset } = useTimeout(() => setCount((v) => v + 10), 1000);
@@ -127,13 +122,8 @@ function App() {
 
   return (
     <>
+      <Navbar />
       {router}
-      <div>Valid: {isValid.toString()}</div>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
       <div
         ref={elementRef}
         style={{
