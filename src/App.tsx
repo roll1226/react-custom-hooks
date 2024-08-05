@@ -16,7 +16,6 @@ import { useRenderCount } from "./hooks/useRenderCount";
 import { useScript } from "./hooks/useScript";
 import { useStateWithHistory } from "./hooks/useStateWithHistory";
 import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
-import { useTimeout } from "./hooks/useTimeout";
 import { useToggle } from "./hooks/useToggle";
 import { useTranslation } from "./hooks/useTranslation";
 import { useUpdateEffect } from "./hooks/useUpdateEffect";
@@ -26,9 +25,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-  const [count, setCount] = useState(10);
-  const { clear, reset } = useTimeout(() => setCount((v) => v + 10), 1000);
 
   const {
     array,
@@ -120,12 +116,6 @@ function App() {
     <>
       <Navbar />
       {router}
-      <div>
-        <div>{count}</div>
-        <button onClick={() => setCount((c) => c + 1)}>Increment</button>
-        <button onClick={clear}>Clear Timeout</button>
-        <button onClick={reset}>Reset Timeout</button>
-      </div>
       <div>
         <div>{array.join(", ")}</div>
         <button onClick={() => push(7)}>Add 7</button>

@@ -15,6 +15,10 @@ const Navbar = () => {
       to: "use-long-press",
       name: "UseLongPress",
     },
+    {
+      to: "use-timeout",
+      name: "UseTimeout",
+    },
   ];
 
   return (
