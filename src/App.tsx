@@ -8,7 +8,6 @@ import { useDebounce } from "./hooks/useDebounce";
 import { useFetch } from "./hooks/useFetch";
 import { useHover } from "./hooks/useHover";
 import { useLocation } from "./hooks/useLocation";
-import { useLongPress } from "./hooks/useLongPress";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
 import { useOnScreen } from "./hooks/useOnScreen";
