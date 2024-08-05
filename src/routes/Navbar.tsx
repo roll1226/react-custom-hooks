@@ -27,6 +27,10 @@ const Navbar = () => {
       to: "use-async",
       name: "UseAsync",
     },
+    {
+      to: "use-click-outside",
+      name: "UseClickOutside",
+    },
   ];
 
   return (

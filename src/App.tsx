@@ -1,7 +1,5 @@
 import { useRef, useState } from "react";
 import "./App.css";
-import { useAsync } from "./hooks/useAsync";
-import { useClickOutside } from "./hooks/useClickOutside";
 import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
 import { useDebounce } from "./hooks/useDebounce";
 import { useFetch } from "./hooks/useFetch";
@@ -24,15 +22,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-
-
-  const [openFlg, setOpenFlg] = useState<boolean>(false);
-  const modalRef = useRef<HTMLDivElement | null>(null);
-
-  useClickOutside(modalRef, () => {
-    if (openFlg) setOpenFlg(false);
-  });
 
   const [copyToClipboard, { success }] = useCopyToClipboard();
 
@@ -98,31 +87,6 @@ function App() {
     <>
       <Navbar />
       {router}
-      <div>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setOpenFlg(true);
-          }}
-        >
-          Open
-        </button>
-        <div
-          ref={modalRef}
-          style={{
-            display: openFlg ? "block" : "none",
-            backgroundColor: "blue",
-            color: "white",
-            width: "100px",
-            height: "100px",
-            position: "absolute",
-            top: "calc(50% - 50px)",
-            left: "calc(50% - 50px)",
-          }}
-        >
-          <span>Modal</span>
-        </div>
-      </div>
       <div>
         <button onClick={() => copyToClipboard("This was copied")}>
           {success ? "Copied" : "Copy Text"}

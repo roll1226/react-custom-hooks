@@ -1,9 +1,10 @@
 import { useRoutes } from "react-router-dom";
+import UseArray from "../pages/useArray";
+import UseAsync from "../pages/UseAsync";
+import UseClickOutside from "../pages/UseClickOutside";
 import UseLongPress from "../pages/UseLongPress";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
-import UseArray from "../pages/useArray";
-import UseAsync from "../pages/UseAsync";
 
 const useAppRoutes = () => {
   return useRoutes([
@@ -24,9 +25,13 @@ const useAppRoutes = () => {
       element: <UseArray />,
     },
     {
-      path: 'use-async',
-      element: <UseAsync />
-    }
+      path: "use-async",
+      element: <UseAsync />,
+    },
+    {
+      path: "use-click-outside",
+      element: <UseClickOutside />,
+    },
   ]);
 };
 
