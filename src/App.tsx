@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import "./App.css";
-import { useArray } from "./hooks/useArray";
 import { useAsync } from "./hooks/useAsync";
 import { useClickOutside } from "./hooks/useClickOutside";
 import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
