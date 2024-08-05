@@ -19,6 +19,10 @@ const Navbar = () => {
       to: "use-timeout",
       name: "UseTimeout",
     },
+    {
+      to: "use-array",
+      name: "UseArray"
+    }
   ];
 
   return (

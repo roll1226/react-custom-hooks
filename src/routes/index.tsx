@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import UseLongPress from "../pages/UseLongPress";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
+import UseArray from "../pages/useArray";
 
 const useAppRoutes = () => {
   return useRoutes([
@@ -16,6 +17,10 @@ const useAppRoutes = () => {
     {
       path: "/use-timeout",
       element: <UseTimeout />,
+    },
+    {
+      path: "/use-array",
+      element: <UseArray />,
     },
   ]);
 };
