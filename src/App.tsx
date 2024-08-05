@@ -50,9 +50,6 @@ function App() {
     });
   });
 
-  const elementRef = useRef<HTMLDivElement | null>(null);
-  useLongPress(elementRef, () => alert("Long Press"), { delay: 500 });
-
   const [openFlg, setOpenFlg] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
 
@@ -124,14 +121,6 @@ function App() {
     <>
       <Navbar />
       {router}
-      <div
-        ref={elementRef}
-        style={{
-          backgroundColor: "red",
-          width: "100px",
-          height: "100px",
-        }}
-      />
       <div>
         <div>{count}</div>
         <button onClick={() => setCount((c) => c + 1)}>Increment</button>

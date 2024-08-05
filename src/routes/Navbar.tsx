@@ -11,12 +11,19 @@ const Navbar = () => {
       to: "use-state-with-validation",
       name: "UseStateWithValidation",
     },
+    {
+      to: "use-long-press",
+      name: "UseLongPress",
+    },
   ];
 
   return (
     <>
-      {links.map((link) => (
-        <Link to={link.to}>{link.name}</Link>
+      {links.map((link, index) => (
+        <>
+          <Link to={link.to}>{link.name}</Link>
+          {index !== links.length - 1 && <> | </>}
+        </>
       ))}
     </>
   );
