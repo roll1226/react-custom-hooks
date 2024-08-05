@@ -3,6 +3,7 @@ import UseLongPress from "../pages/UseLongPress";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
 import UseArray from "../pages/useArray";
+import UseAsync from "../pages/UseAsync";
 
 const useAppRoutes = () => {
   return useRoutes([
@@ -22,6 +23,10 @@ const useAppRoutes = () => {
       path: "/use-array",
       element: <UseArray />,
     },
+    {
+      path: 'use-async',
+      element: <UseAsync />
+    }
   ]);
 };
 

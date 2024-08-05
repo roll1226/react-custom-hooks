@@ -26,14 +26,6 @@ function App() {
   const router = useAppRoutes();
 
 
-  const { loading, error, value } = useAsync(() => {
-    return new Promise((resolve, reject) => {
-      const success = false;
-      setTimeout(() => {
-        success ? resolve("Hi") : reject("Error");
-      }, 1000);
-    });
-  });
 
   const [openFlg, setOpenFlg] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
@@ -106,11 +98,6 @@ function App() {
     <>
       <Navbar />
       {router}
-      <div>
-        <div>Loading: {loading.toString()}</div>
-        <div>{JSON.stringify(error)}</div>
-        <div>{JSON.stringify(value)}</div>
-      </div>
       <div>
         <button
           onClick={(e) => {

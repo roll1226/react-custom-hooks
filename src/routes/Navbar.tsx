@@ -21,8 +21,12 @@ const Navbar = () => {
     },
     {
       to: "use-array",
-      name: "UseArray"
-    }
+      name: "UseArray",
+    },
+    {
+      to: "use-async",
+      name: "UseAsync",
+    },
   ];
 
   return (
