@@ -3,6 +3,7 @@ import UseArray from "../pages/useArray";
 import UseAsync from "../pages/UseAsync";
 import UseClickOutside from "../pages/UseClickOutside";
 import UseCopyToClipboard from "../pages/UseCopyToClipboard";
+import UseDebounce from "../pages/UseDebounce";
 import UseLongPress from "../pages/UseLongPress";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
@@ -36,6 +37,10 @@ const useAppRoutes = () => {
     {
       path: "use-copy-to-clipboard",
       element: <UseCopyToClipboard />,
+    },
+    {
+      path: "use-debounce",
+      element: <UseDebounce />,
     },
   ]);
 };

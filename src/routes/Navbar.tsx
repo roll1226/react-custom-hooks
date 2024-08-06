@@ -35,6 +35,10 @@ const Navbar = () => {
       to: "use-copy-to-clipboard",
       name: "UseCopyToClipboard",
     },
+    {
+      to: "use-debounce",
+      name: "UseDebounce",
+    },
   ];
 
   return (

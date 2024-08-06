@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import "./App.css";
-import { useDebounce } from "./hooks/useDebounce";
 import { useFetch } from "./hooks/useFetch";
 import { useHover } from "./hooks/useHover";
 import { useLocation } from "./hooks/useLocation";
@@ -21,9 +20,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-  const [count2, setCount2] = useState(10);
-  useDebounce(() => alert(count2), 1000, [count2]);
 
   const [toggle, toggleValue] = useToggle(false);
   const renderCount = useRenderCount();
@@ -84,10 +80,6 @@ function App() {
     <>
       <Navbar />
       {router}
-      <div>
-        <div>{count2}</div>
-        <button onClick={() => setCount2((c) => c + 1)}>Increment</button>
-      </div>
       <div>
         <div>{renderCount}</div>
         <div>{toggle.toString()}</div>
