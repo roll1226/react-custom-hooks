@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import UseArray from "../pages/useArray";
 import UseAsync from "../pages/UseAsync";
 import UseClickOutside from "../pages/UseClickOutside";
+import UseCopyToClipboard from "../pages/UseCopyToClipboard";
 import UseLongPress from "../pages/UseLongPress";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
@@ -31,6 +32,10 @@ const useAppRoutes = () => {
     {
       path: "use-click-outside",
       element: <UseClickOutside />,
+    },
+    {
+      path: "use-copy-to-clipboard",
+      element: <UseCopyToClipboard />,
     },
   ]);
 };

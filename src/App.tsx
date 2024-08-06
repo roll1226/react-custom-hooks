@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import "./App.css";
-import { useCopyToClipboard } from "./hooks/useCopyToClipboard";
 import { useDebounce } from "./hooks/useDebounce";
 import { useFetch } from "./hooks/useFetch";
 import { useHover } from "./hooks/useHover";
@@ -22,8 +21,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-  const [copyToClipboard, { success }] = useCopyToClipboard();
 
   const [count2, setCount2] = useState(10);
   useDebounce(() => alert(count2), 1000, [count2]);
@@ -87,12 +84,6 @@ function App() {
     <>
       <Navbar />
       {router}
-      <div>
-        <button onClick={() => copyToClipboard("This was copied")}>
-          {success ? "Copied" : "Copy Text"}
-        </button>
-        <input type="text" />
-      </div>
       <div>
         <div>{count2}</div>
         <button onClick={() => setCount2((c) => c + 1)}>Increment</button>

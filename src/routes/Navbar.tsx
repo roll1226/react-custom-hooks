@@ -31,6 +31,10 @@ const Navbar = () => {
       to: "use-click-outside",
       name: "UseClickOutside",
     },
+    {
+      to: "use-copy-to-clipboard",
+      name: "UseCopyToClipboard",
+    },
   ];
 
   return (
