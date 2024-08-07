@@ -1,5 +1,5 @@
 import { useRoutes } from "react-router-dom";
-import UseArray from "../pages/useArray";
+import UseArray from "../pages/UseArray";
 import UseAsync from "../pages/UseAsync";
 import UseClickOutside from "../pages/UseClickOutside";
 import UseCopyToClipboard from "../pages/UseCopyToClipboard";
