@@ -39,6 +39,10 @@ const Navbar = () => {
       to: "use-debounce",
       name: "UseDebounce",
     },
+    {
+      to: "use-toggle",
+      name: "UseToggle",
+    },
   ];
 
   return (

@@ -7,11 +7,9 @@ import { useMediaQuery } from "./hooks/useMediaQuery";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
 import { useOnScreen } from "./hooks/useOnScreen";
 import { usePrevious } from "./hooks/usePrevious";
-import { useRenderCount } from "./hooks/useRenderCount";
 import { useScript } from "./hooks/useScript";
 import { useStateWithHistory } from "./hooks/useStateWithHistory";
 import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
-import { useToggle } from "./hooks/useToggle";
 import { useTranslation } from "./hooks/useTranslation";
 import { useUpdateEffect } from "./hooks/useUpdateEffect";
 import { useWindowSize } from "./hooks/useWindowSize";
@@ -20,9 +18,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-  const [toggle, toggleValue] = useToggle(false);
-  const renderCount = useRenderCount();
 
   const hoverRef = useRef<HTMLDivElement | null>(null);
   const isHovered = useHover(hoverRef);
@@ -80,13 +75,6 @@ function App() {
     <>
       <Navbar />
       {router}
-      <div>
-        <div>{renderCount}</div>
-        <div>{toggle.toString()}</div>
-        <button onClick={toggleValue}>Toggle</button>
-        <button onClick={() => toggleValue(true)}>Make True</button>
-        <button onClick={() => toggleValue(false)}>Make False</button>
-      </div>
       <div
         ref={hoverRef}
         style={{

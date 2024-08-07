@@ -7,6 +7,7 @@ import UseDebounce from "../pages/UseDebounce";
 import UseLongPress from "../pages/UseLongPress";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
+import UseToggle from "../pages/UseToggle";
 
 const useAppRoutes = () => {
   return useRoutes([
@@ -41,6 +42,10 @@ const useAppRoutes = () => {
     {
       path: "use-debounce",
       element: <UseDebounce />,
+    },
+    {
+      path: "use-toggle",
+      element: <UseToggle />,
     },
   ]);
 };
