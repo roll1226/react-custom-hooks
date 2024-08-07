@@ -43,6 +43,10 @@ const Navbar = () => {
       to: "use-toggle",
       name: "UseToggle",
     },
+    {
+      to: "use-render-count",
+      name: "UseRenderCount",
+    },
   ];
 
   return (

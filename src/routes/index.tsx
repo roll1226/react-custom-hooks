@@ -5,6 +5,7 @@ import UseClickOutside from "../pages/UseClickOutside";
 import UseCopyToClipboard from "../pages/UseCopyToClipboard";
 import UseDebounce from "../pages/UseDebounce";
 import UseLongPress from "../pages/UseLongPress";
+import UseRenderCount from "../pages/UseRenderCount";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
 import UseToggle from "../pages/UseToggle";
@@ -46,6 +47,10 @@ const useAppRoutes = () => {
     {
       path: "use-toggle",
       element: <UseToggle />,
+    },
+    {
+      path: "use-render-count",
+      element: <UseRenderCount />,
     },
   ]);
 };
