@@ -4,6 +4,7 @@ import UseAsync from "../pages/UseAsync";
 import UseClickOutside from "../pages/UseClickOutside";
 import UseCopyToClipboard from "../pages/UseCopyToClipboard";
 import UseDebounce from "../pages/UseDebounce";
+import UseHover from "../pages/UseHover";
 import UseLongPress from "../pages/UseLongPress";
 import UseRenderCount from "../pages/UseRenderCount";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
@@ -51,6 +52,10 @@ const useAppRoutes = () => {
     {
       path: "use-render-count",
       element: <UseRenderCount />,
+    },
+    {
+      path: "use-hover",
+      element: <UseHover />,
     },
   ]);
 };

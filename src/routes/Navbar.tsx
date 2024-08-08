@@ -47,6 +47,10 @@ const Navbar = () => {
       to: "use-render-count",
       name: "UseRenderCount",
     },
+    {
+      to: "use-hover",
+      name: "UseHover",
+    },
   ];
 
   return (

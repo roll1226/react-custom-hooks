@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import "./App.css";
 import { useFetch } from "./hooks/useFetch";
-import { useHover } from "./hooks/useHover";
 import { useLocation } from "./hooks/useLocation";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
@@ -18,9 +17,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-  const hoverRef = useRef<HTMLDivElement | null>(null);
-  const isHovered = useHover(hoverRef);
 
   const online = useOnlineStatus();
 
@@ -75,14 +71,6 @@ function App() {
     <>
       <Navbar />
       {router}
-      <div
-        ref={hoverRef}
-        style={{
-          backgroundColor: isHovered ? "blue" : "red",
-          width: "100px",
-          height: "100px",
-        }}
-      />
 
       <div>{online.toString()}</div>
 
