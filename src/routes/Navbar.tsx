@@ -51,6 +51,10 @@ const Navbar = () => {
       to: "use-hover",
       name: "UseHover",
     },
+    {
+      to: "use-one-screen",
+      name: "UseOneScreen",
+    },
   ];
 
   return (

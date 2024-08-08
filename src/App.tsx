@@ -1,10 +1,9 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { useFetch } from "./hooks/useFetch";
 import { useLocation } from "./hooks/useLocation";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
-import { useOnScreen } from "./hooks/useOnScreen";
 import { usePrevious } from "./hooks/usePrevious";
 import { useScript } from "./hooks/useScript";
 import { useStateWithHistory } from "./hooks/useStateWithHistory";
@@ -19,9 +18,6 @@ function App() {
   const router = useAppRoutes();
 
   const online = useOnlineStatus();
-
-  const headerTwoRef = useRef<HTMLDivElement | null>(null);
-  const visible = useOnScreen(headerTwoRef, "-100px");
 
   const [checkCount, setCheckCount] = useState(0);
   const [name, setName] = useState("roll1226");
@@ -73,13 +69,6 @@ function App() {
       {router}
 
       <div>{online.toString()}</div>
-
-      <div>
-        <h1>Header</h1>
-        <div>...</div>
-        <h1 ref={headerTwoRef}>Header 2 {visible && "(Visible)"}</h1>
-        <div>...</div>
-      </div>
 
       <div>
         <div>

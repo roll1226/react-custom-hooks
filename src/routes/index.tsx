@@ -6,6 +6,7 @@ import UseCopyToClipboard from "../pages/UseCopyToClipboard";
 import UseDebounce from "../pages/UseDebounce";
 import UseHover from "../pages/UseHover";
 import UseLongPress from "../pages/UseLongPress";
+import UseOnScreen from "../pages/UseOnScreen";
 import UseRenderCount from "../pages/UseRenderCount";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
@@ -56,6 +57,10 @@ const useAppRoutes = () => {
     {
       path: "use-hover",
       element: <UseHover />,
+    },
+    {
+      path: "use-one-screen",
+      element: <UseOnScreen />,
     },
   ]);
 };
