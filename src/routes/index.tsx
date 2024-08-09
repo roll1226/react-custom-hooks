@@ -6,6 +6,7 @@ import UseCopyToClipboard from "../pages/UseCopyToClipboard";
 import UseDebounce from "../pages/UseDebounce";
 import UseHover from "../pages/UseHover";
 import UseLongPress from "../pages/UseLongPress";
+import UseOnlineStatus from "../pages/UseOnlineStatus";
 import UseOnScreen from "../pages/UseOnScreen";
 import UseRenderCount from "../pages/UseRenderCount";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
@@ -61,6 +62,10 @@ const useAppRoutes = () => {
     {
       path: "use-one-screen",
       element: <UseOnScreen />,
+    },
+    {
+      path: "use-online-status",
+      element: <UseOnlineStatus />,
     },
   ]);
 };

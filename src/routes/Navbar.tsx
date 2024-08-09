@@ -55,6 +55,10 @@ const Navbar = () => {
       to: "use-one-screen",
       name: "UseOneScreen",
     },
+    {
+      to: "use-online-status",
+      name: "UseOnlineStatus",
+    },
   ];
 
   return (

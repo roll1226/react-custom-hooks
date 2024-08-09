@@ -4,7 +4,7 @@ import { useOnlineStatus } from "../hooks/useOnlineStatus";
 const UseOnlineStatus: FC = () => {
   const online = useOnlineStatus();
 
-  return <div>{online.toString()}</div>;
+  return <div>{online ? "online" : "offline"}</div>;
 };
 
 export default UseOnlineStatus;
