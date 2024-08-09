@@ -3,7 +3,6 @@ import "./App.css";
 import { useFetch } from "./hooks/useFetch";
 import { useLocation } from "./hooks/useLocation";
 import { useMediaQuery } from "./hooks/useMediaQuery";
-import { useOnlineStatus } from "./hooks/useOnlineStatus";
 import { usePrevious } from "./hooks/usePrevious";
 import { useScript } from "./hooks/useScript";
 import { useStateWithHistory } from "./hooks/useStateWithHistory";
@@ -16,8 +15,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-  const online = useOnlineStatus();
 
   const [checkCount, setCheckCount] = useState(0);
   const [name, setName] = useState("roll1226");
@@ -67,8 +64,6 @@ function App() {
     <>
       <Navbar />
       {router}
-
-      <div>{online.toString()}</div>
 
       <div>
         <div>
