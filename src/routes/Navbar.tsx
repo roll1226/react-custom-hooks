@@ -59,6 +59,10 @@ const Navbar = () => {
       to: "use-online-status",
       name: "UseOnlineStatus",
     },
+    {
+      to: "use-previous",
+      name: "UsePrevious",
+    },
   ];
 
   return (

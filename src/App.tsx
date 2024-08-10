@@ -3,7 +3,6 @@ import "./App.css";
 import { useFetch } from "./hooks/useFetch";
 import { useLocation } from "./hooks/useLocation";
 import { useMediaQuery } from "./hooks/useMediaQuery";
-import { usePrevious } from "./hooks/usePrevious";
 import { useScript } from "./hooks/useScript";
 import { useStateWithHistory } from "./hooks/useStateWithHistory";
 import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
@@ -16,9 +15,6 @@ import Navbar from "./routes/Navbar";
 function App() {
   const router = useAppRoutes();
 
-  const [checkCount, setCheckCount] = useState(0);
-  const [name, setName] = useState("roll1226");
-  const previousCount = usePrevious(checkCount);
 
   const [fetchId, setFetchId] = useState(1);
   const {
@@ -65,18 +61,6 @@ function App() {
       <Navbar />
       {router}
 
-      <div>
-        <div>
-          {checkCount} - {previousCount}
-        </div>
-        <div>{name}</div>
-        <button
-          onClick={() => setCheckCount((currentCount) => currentCount + 1)}
-        >
-          Increment
-        </button>
-        <button onClick={() => setName("John")}>Change Name</button>
-      </div>
 
       <div>
         <div>{fetchId}</div>

@@ -8,6 +8,7 @@ import UseHover from "../pages/UseHover";
 import UseLongPress from "../pages/UseLongPress";
 import UseOnlineStatus from "../pages/UseOnlineStatus";
 import UseOnScreen from "../pages/UseOnScreen";
+import UsePrevious from "../pages/UsePrevious";
 import UseRenderCount from "../pages/UseRenderCount";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
@@ -66,6 +67,10 @@ const useAppRoutes = () => {
     {
       path: "use-online-status",
       element: <UseOnlineStatus />,
+    },
+    {
+      path: "use-previous",
+      element: <UsePrevious />,
     },
   ]);
 };
