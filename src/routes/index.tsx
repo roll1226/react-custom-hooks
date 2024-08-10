@@ -6,6 +6,7 @@ import UseCopyToClipboard from "../pages/UseCopyToClipboard";
 import UseDebounce from "../pages/UseDebounce";
 import UseFetch from "../pages/UseFetch";
 import UseHover from "../pages/UseHover";
+import UseLocation from "../pages/UseLocation";
 import UseLongPress from "../pages/UseLongPress";
 import UseOnlineStatus from "../pages/UseOnlineStatus";
 import UseOnScreen from "../pages/UseOnScreen";
@@ -76,6 +77,10 @@ const useAppRoutes = () => {
     {
       path: "use-fetch",
       element: <UseFetch />,
+    },
+    {
+      path: "use-location",
+      element: <UseLocation />,
     },
   ]);
 };

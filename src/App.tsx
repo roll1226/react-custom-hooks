@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import { useLocation } from "./hooks/useLocation";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 import { useScript } from "./hooks/useScript";
 import { useStateWithHistory } from "./hooks/useStateWithHistory";
@@ -13,12 +12,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-  const {
-    loading: locationLoading,
-    error: locationError,
-    data: locationData,
-  } = useLocation();
 
   const [sessionName, setSessionName, removeSessionName] = useSessionStorage(
     "name",
@@ -50,14 +43,6 @@ function App() {
     <>
       <Navbar />
       {router}
-
-      <div>
-        <div>Loading: {locationLoading.toString()}</div>
-        <div>Error: {locationError?.message}</div>
-        <div>
-          {locationData?.latitude} x {locationData?.longitude}
-        </div>
-      </div>
 
       <div>
         <div>
