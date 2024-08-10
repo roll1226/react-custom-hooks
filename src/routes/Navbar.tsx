@@ -63,6 +63,10 @@ const Navbar = () => {
       to: "use-previous",
       name: "UsePrevious",
     },
+    {
+      to: "use-fetch",
+      name: "UseFetch",
+    },
   ];
 
   return (

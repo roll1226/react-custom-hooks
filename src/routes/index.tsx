@@ -4,6 +4,7 @@ import UseAsync from "../pages/UseAsync";
 import UseClickOutside from "../pages/UseClickOutside";
 import UseCopyToClipboard from "../pages/UseCopyToClipboard";
 import UseDebounce from "../pages/UseDebounce";
+import UseFetch from "../pages/UseFetch";
 import UseHover from "../pages/UseHover";
 import UseLongPress from "../pages/UseLongPress";
 import UseOnlineStatus from "../pages/UseOnlineStatus";
@@ -71,6 +72,10 @@ const useAppRoutes = () => {
     {
       path: "use-previous",
       element: <UsePrevious />,
+    },
+    {
+      path: "use-fetch",
+      element: <UseFetch />,
     },
   ]);
 };

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import { useFetch } from "./hooks/useFetch";
 import { useLocation } from "./hooks/useLocation";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 import { useScript } from "./hooks/useScript";
@@ -15,15 +14,6 @@ import Navbar from "./routes/Navbar";
 function App() {
   const router = useAppRoutes();
 
-
-  const [fetchId, setFetchId] = useState(1);
-  const {
-    loading: fetchLoading,
-    error: fetchError,
-    value: fetchValue,
-  } = useFetch(`https://jsonplaceholder.typicode.com/todos/${fetchId}`, {}, [
-    fetchId,
-  ]);
   const {
     loading: locationLoading,
     error: locationError,
@@ -60,17 +50,6 @@ function App() {
     <>
       <Navbar />
       {router}
-
-
-      <div>
-        <div>{fetchId}</div>
-        <button onClick={() => setFetchId((currentId) => currentId + 1)}>
-          Increment ID
-        </button>
-        <div>Loading: {fetchLoading.toString()}</div>
-        <div>{JSON.stringify(fetchError, null, 2)}</div>
-        <div>{JSON.stringify(fetchValue, null, 2)}</div>
-      </div>
 
       <div>
         <div>Loading: {locationLoading.toString()}</div>
