@@ -68,9 +68,13 @@ const Navbar = () => {
       name: "UseFetch",
     },
     {
-      to: 'use-location',
-      name: 'UseLocation'
-    }
+      to: "use-location",
+      name: "UseLocation",
+    },
+    {
+      to: "use-local-storage",
+      name: "UseLocalStorage",
+    },
   ];
 
   return (

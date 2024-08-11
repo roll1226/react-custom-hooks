@@ -6,6 +6,7 @@ import UseCopyToClipboard from "../pages/UseCopyToClipboard";
 import UseDebounce from "../pages/UseDebounce";
 import UseFetch from "../pages/UseFetch";
 import UseHover from "../pages/UseHover";
+import UseLocalStorage from "../pages/UseLocalStorage";
 import UseLocation from "../pages/UseLocation";
 import UseLongPress from "../pages/UseLongPress";
 import UseOnlineStatus from "../pages/UseOnlineStatus";
@@ -81,6 +82,10 @@ const useAppRoutes = () => {
     {
       path: "use-location",
       element: <UseLocation />,
+    },
+    {
+      path: "use-local-storage",
+      element: <UseLocalStorage />,
     },
   ]);
 };

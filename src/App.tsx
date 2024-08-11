@@ -3,7 +3,6 @@ import "./App.css";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 import { useScript } from "./hooks/useScript";
 import { useStateWithHistory } from "./hooks/useStateWithHistory";
-import { useLocalStorage, useSessionStorage } from "./hooks/useStorage";
 import { useTranslation } from "./hooks/useTranslation";
 import { useUpdateEffect } from "./hooks/useUpdateEffect";
 import { useWindowSize } from "./hooks/useWindowSize";
@@ -12,12 +11,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-  const [sessionName, setSessionName, removeSessionName] = useSessionStorage(
-    "name",
-    "roll1226"
-  );
-  const [age, setAge, removeAge] = useLocalStorage("age", 26);
 
   const isLarge = useMediaQuery("(min-width: 600px)");
 
@@ -43,16 +36,6 @@ function App() {
     <>
       <Navbar />
       {router}
-
-      <div>
-        <div>
-          {sessionName} - {age}
-        </div>
-        <button onClick={() => setSessionName("John")}>Set Name</button>
-        <button onClick={() => setAge(40)}>Set Age</button>
-        <button onClick={removeSessionName}>Remove Name</button>
-        <button onClick={removeAge}>Remove Age</button>
-      </div>
 
       <div>Large: {isLarge.toString()}</div>
 
