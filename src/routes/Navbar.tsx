@@ -75,6 +75,10 @@ const Navbar = () => {
       to: "use-local-storage",
       name: "UseLocalStorage",
     },
+    {
+      to: "use-media-query",
+      name: "UseMediaQuery",
+    },
   ];
 
   return (

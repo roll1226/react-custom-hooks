@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import { useMediaQuery } from "./hooks/useMediaQuery";
 import { useScript } from "./hooks/useScript";
 import { useStateWithHistory } from "./hooks/useStateWithHistory";
 import { useTranslation } from "./hooks/useTranslation";
@@ -12,7 +11,6 @@ import Navbar from "./routes/Navbar";
 function App() {
   const router = useAppRoutes();
 
-  const isLarge = useMediaQuery("(min-width: 600px)");
 
   const { loading: scriptLoading, error: scriptError } = useScript(
     "https://code.jquery.com/jquery-3.6.0.min.js"
@@ -37,7 +35,6 @@ function App() {
       <Navbar />
       {router}
 
-      <div>Large: {isLarge.toString()}</div>
 
       <div>
         {scriptLoading && <div>Loading</div>}

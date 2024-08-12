@@ -9,6 +9,7 @@ import UseHover from "../pages/UseHover";
 import UseLocalStorage from "../pages/UseLocalStorage";
 import UseLocation from "../pages/UseLocation";
 import UseLongPress from "../pages/UseLongPress";
+import UseMediaQuery from "../pages/UseMediaQuery";
 import UseOnlineStatus from "../pages/UseOnlineStatus";
 import UseOnScreen from "../pages/UseOnScreen";
 import UsePrevious from "../pages/UsePrevious";
@@ -86,6 +87,10 @@ const useAppRoutes = () => {
     {
       path: "use-local-storage",
       element: <UseLocalStorage />,
+    },
+    {
+      path: "use-media-query",
+      element: <UseMediaQuery />,
     },
   ]);
 };
