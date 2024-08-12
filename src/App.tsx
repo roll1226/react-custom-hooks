@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import { useScript } from "./hooks/useScript";
 import { useStateWithHistory } from "./hooks/useStateWithHistory";
 import { useTranslation } from "./hooks/useTranslation";
 import { useUpdateEffect } from "./hooks/useUpdateEffect";
@@ -10,11 +9,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-
-  const { loading: scriptLoading, error: scriptError } = useScript(
-    "https://code.jquery.com/jquery-3.6.0.min.js"
-  );
 
   const [
     historyCount,
@@ -34,13 +28,6 @@ function App() {
     <>
       <Navbar />
       {router}
-
-
-      <div>
-        {scriptLoading && <div>Loading</div>}
-        {scriptError && <div>Error</div>}
-        {!scriptLoading && !scriptError && <div>load script</div>}
-      </div>
 
       <div>
         <div>{historyCount}</div>
