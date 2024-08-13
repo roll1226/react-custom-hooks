@@ -87,6 +87,10 @@ const Navbar = () => {
       to: "use-translation",
       name: "UseTranslation",
     },
+    {
+      to: "use-update-effect",
+      name: "UseUpdateEffect",
+    },
   ];
 
   return (

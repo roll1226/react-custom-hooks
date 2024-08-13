@@ -19,6 +19,7 @@ import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
 import UseToggle from "../pages/UseToggle";
 import UseTranslation from "../pages/UseTranslation";
+import UseUpdateEffect from "../pages/UseUpdateEffect";
 
 const useAppRoutes = () => {
   return useRoutes([
@@ -101,6 +102,10 @@ const useAppRoutes = () => {
     {
       path: "use-translation",
       element: <UseTranslation />,
+    },
+    {
+      path: "use-update-effect",
+      element: <UseUpdateEffect />,
     },
   ]);
 };
