@@ -14,6 +14,7 @@ import UseOnlineStatus from "../pages/UseOnlineStatus";
 import UseOnScreen from "../pages/UseOnScreen";
 import UsePrevious from "../pages/UsePrevious";
 import UseRenderCount from "../pages/UseRenderCount";
+import UseStateWithHistory from "../pages/UseStateWithHistory";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
 import UseToggle from "../pages/UseToggle";
@@ -91,6 +92,10 @@ const useAppRoutes = () => {
     {
       path: "use-media-query",
       element: <UseMediaQuery />,
+    },
+    {
+      path: "use-state-with-history",
+      element: <UseStateWithHistory />,
     },
   ]);
 };

@@ -79,6 +79,10 @@ const Navbar = () => {
       to: "use-media-query",
       name: "UseMediaQuery",
     },
+    {
+      to: "use-state-with-history",
+      name: "UseStateWithHistory",
+    },
   ];
 
   return (

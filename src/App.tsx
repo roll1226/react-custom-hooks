@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import { useStateWithHistory } from "./hooks/useStateWithHistory";
 import { useTranslation } from "./hooks/useTranslation";
 import { useUpdateEffect } from "./hooks/useUpdateEffect";
 import { useWindowSize } from "./hooks/useWindowSize";
@@ -9,13 +8,6 @@ import Navbar from "./routes/Navbar";
 
 function App() {
   const router = useAppRoutes();
-
-  const [
-    historyCount,
-    setHistoryCount,
-    { history, pointer, back, forward, go },
-  ] = useStateWithHistory(1);
-  const [historyName, setHistoryName] = useState("roll1226");
 
   const { language, setLanguage, setFallbackLanguage, t } = useTranslation();
 
@@ -28,27 +20,6 @@ function App() {
     <>
       <Navbar />
       {router}
-
-      <div>
-        <div>{historyCount}</div>
-        <div>{history.join(", ")}</div>
-        <div>Pointer - {pointer}</div>
-        <div>{historyName}</div>
-        <button
-          onClick={() => setHistoryCount((currentCount) => currentCount * 2)}
-        >
-          Double
-        </button>
-        <button
-          onClick={() => setHistoryCount((currentCount) => currentCount + 1)}
-        >
-          Increment
-        </button>
-        <button onClick={back}>Back</button>
-        <button onClick={forward}>Forward</button>
-        <button onClick={() => go(2)}>Go To Index 2</button>
-        <button onClick={() => setHistoryName("John")}>Change Name</button>
-      </div>
 
       <div>
         <div>{language}</div>
