@@ -18,6 +18,7 @@ import UseStateWithHistory from "../pages/UseStateWithHistory";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
 import UseTimeout from "../pages/UseTimeout";
 import UseToggle from "../pages/UseToggle";
+import UseTranslation from "../pages/UseTranslation";
 
 const useAppRoutes = () => {
   return useRoutes([
@@ -96,6 +97,10 @@ const useAppRoutes = () => {
     {
       path: "use-state-with-history",
       element: <UseStateWithHistory />,
+    },
+    {
+      path: "use-translation",
+      element: <UseTranslation />,
     },
   ]);
 };

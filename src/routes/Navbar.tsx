@@ -83,6 +83,10 @@ const Navbar = () => {
       to: "use-state-with-history",
       name: "UseStateWithHistory",
     },
+    {
+      to: "use-translation",
+      name: "UseTranslation",
+    },
   ];
 
   return (
