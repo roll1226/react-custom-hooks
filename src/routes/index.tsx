@@ -20,6 +20,7 @@ import UseTimeout from "../pages/UseTimeout";
 import UseToggle from "../pages/UseToggle";
 import UseTranslation from "../pages/UseTranslation";
 import UseUpdateEffect from "../pages/UseUpdateEffect";
+import UseWindowSize from "../pages/UseWindowSize";
 
 const useAppRoutes = () => {
   return useRoutes([
@@ -106,6 +107,10 @@ const useAppRoutes = () => {
     {
       path: "use-update-effect",
       element: <UseUpdateEffect />,
+    },
+    {
+      path: "use-window-size",
+      element: <UseWindowSize />,
     },
   ]);
 };

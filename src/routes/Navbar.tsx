@@ -91,6 +91,10 @@ const Navbar = () => {
       to: "use-update-effect",
       name: "UseUpdateEffect",
     },
+    {
+      to: "use-window-size",
+      name: "UseWindowSize",
+    },
   ];
 
   return (
