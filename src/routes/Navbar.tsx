@@ -8,6 +8,10 @@ type link = {
 const Navbar = () => {
   const links: link[] = [
     {
+      to: "use-effect-once",
+      name: "UssEffectOnce",
+    },
+    {
       to: "use-state-with-validation",
       name: "UseStateWithValidation",
     },

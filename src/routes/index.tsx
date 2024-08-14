@@ -4,6 +4,7 @@ import UseAsync from "../pages/UseAsync";
 import UseClickOutside from "../pages/UseClickOutside";
 import UseCopyToClipboard from "../pages/UseCopyToClipboard";
 import UseDebounce from "../pages/UseDebounce";
+import UseEffectOnce from "../pages/UseEffectOnce";
 import UseFetch from "../pages/UseFetch";
 import UseHover from "../pages/UseHover";
 import UseLocalStorage from "../pages/UseLocalStorage";
@@ -24,6 +25,10 @@ import UseWindowSize from "../pages/UseWindowSize";
 
 const useAppRoutes = () => {
   return useRoutes([
+    {
+      path: "use-effect-once",
+      element: <UseEffectOnce />,
+    },
     {
       path: "/use-state-with-validation",
       element: <UseStateWithValidation />,
