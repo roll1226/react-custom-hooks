@@ -5,6 +5,7 @@ import UseClickOutside from "../pages/UseClickOutside";
 import UseCopyToClipboard from "../pages/UseCopyToClipboard";
 import UseDebounce from "../pages/UseDebounce";
 import UseEffectOnce from "../pages/UseEffectOnce";
+import UseEventListener from "../pages/UseEventListener";
 import UseFetch from "../pages/UseFetch";
 import UseHover from "../pages/UseHover";
 import UseLocalStorage from "../pages/UseLocalStorage";
@@ -116,6 +117,10 @@ const useAppRoutes = () => {
     {
       path: "use-window-size",
       element: <UseWindowSize />,
+    },
+    {
+      path: "use-event-listener",
+      element: <UseEventListener />,
     },
   ]);
 };

@@ -99,6 +99,10 @@ const Navbar = () => {
       to: "use-window-size",
       name: "UseWindowSize",
     },
+    {
+      to: "use-event-listener",
+      name: "UseEventListener",
+    },
   ];
 
   return (
