@@ -55,7 +55,9 @@ const getNestedTranslation = (
   language: Language,
   keys: TranslateKey[]
 ): string | TranslationKeys | undefined => {
-  const languageTranslations = translations[language] as unknown as TranslationKeys;
+  const languageTranslations = translations[
+    language
+  ] as unknown as TranslationKeys;
 
   return keys.reduce<string | TranslationKeys | undefined>((obj, key) => {
     if (obj && typeof obj === "object") {
