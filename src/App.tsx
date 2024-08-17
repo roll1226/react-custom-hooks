@@ -8,7 +8,16 @@ function App() {
   return (
     <>
       <Navbar />
-      {router}
+      <body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {router}
+      </body>
     </>
   );
 }
