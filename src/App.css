@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+a.active button {
+  background: #bbb;
+  color: #1a1a1a;
+}

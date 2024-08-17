@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 type link = {
   to: string;
@@ -109,7 +109,14 @@ const Navbar = () => {
     <>
       {links.map((link, index) => (
         <>
-          <Link to={link.to}>{link.name}</Link>
+          <NavLink
+            to={link.to}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+          >
+            <button>{link.name}</button>
+          </NavLink>
           {index !== links.length - 1 && <> | </>}
         </>
       ))}
