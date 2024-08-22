@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useLocalStorage, useSessionStorage } from "../hooks/useStorage";
 
-const UseLocalStorage: FC = () => {
+const UseStorage: FC = () => {
   const [name, setName, removeName] = useSessionStorage("name", "roll1226");
   const [age, setAge, removeAge] = useLocalStorage("age", 26);
 
@@ -18,4 +18,4 @@ const UseLocalStorage: FC = () => {
   );
 };
 
-export default UseLocalStorage;
+export default UseStorage;

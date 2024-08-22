@@ -8,7 +8,6 @@ import UseEffectOnce from "../pages/UseEffectOnce";
 import UseEventListener from "../pages/UseEventListener";
 import UseFetch from "../pages/UseFetch";
 import UseHover from "../pages/UseHover";
-import UseLocalStorage from "../pages/UseLocalStorage";
 import UseLocation from "../pages/UseLocation";
 import UseLongPress from "../pages/UseLongPress";
 import UseMediaQuery from "../pages/UseMediaQuery";
@@ -18,6 +17,7 @@ import UsePrevious from "../pages/UsePrevious";
 import UseRenderCount from "../pages/UseRenderCount";
 import UseStateWithHistory from "../pages/UseStateWithHistory";
 import UseStateWithValidation from "../pages/UseStateWithValidation";
+import UseStorage from "../pages/UseStorage";
 import UseTimeout from "../pages/UseTimeout";
 import UseToggle from "../pages/UseToggle";
 import UseTranslation from "../pages/UseTranslation";
@@ -96,7 +96,7 @@ const useAppRoutes = () => {
     },
     {
       path: "use-local-storage",
-      element: <UseLocalStorage />,
+      element: <UseStorage />,
     },
     {
       path: "use-media-query",
