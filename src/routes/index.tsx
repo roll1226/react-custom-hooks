@@ -95,7 +95,7 @@ const useAppRoutes = () => {
       element: <UseLocation />,
     },
     {
-      path: "use-local-storage",
+      path: "use-storage",
       element: <UseStorage />,
     },
     {

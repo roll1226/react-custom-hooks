@@ -73,8 +73,8 @@ export const links: link[] = [
     name: "UseLocation",
   },
   {
-    to: "use-local-storage",
-    name: "UseLocalStorage",
+    to: "use-storage",
+    name: "UseStorage",
   },
   {
     to: "use-media-query",
