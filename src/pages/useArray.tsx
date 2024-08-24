@@ -15,14 +15,14 @@ const UseArray: FC = () => {
   return (
     <div>
       <div>{array.join(", ")}</div>
-      <button onClick={() => push(7)}>Add 7</button>
-      <button onClick={() => update(1, 9)}>Change Second Element To 9</button>
-      <button onClick={() => remove(1)}>Remove Second Element</button>
+      <button onClick={() => push(7)}>7を追加</button>
+      <button onClick={() => update(1, 9)}>2番目の要素を9に変える</button>
+      <button onClick={() => remove(1)}>2番目の要素を削除</button>
       <button onClick={() => filter((n) => n < 3)}>
-        Keep Numbers Less Than 4
+        要素で4未満の値を残す
       </button>
-      <button onClick={() => set([1, 2])}>Set To 1, 2</button>
-      <button onClick={arrayClear}>Clear</button>
+      <button onClick={() => set([1, 2])}>配列を[1,2]に変更</button>
+      <button onClick={arrayClear}>クリア</button>
     </div>
   );
 };
