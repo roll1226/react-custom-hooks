@@ -7,7 +7,7 @@ const UseEventListener: FC = () => {
     setKey(e.key);
   });
 
-  return <div>Last Key: {key}</div>;
+  return <div>KeyDown Key: {key}</div>;
 };
 
 export default UseEventListener;
