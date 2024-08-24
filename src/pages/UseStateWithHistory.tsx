@@ -13,15 +13,15 @@ const UseStateWithHistory: FC = () => {
       <div>Pointer - {pointer}</div>
       <div>{name}</div>
       <button onClick={() => setCount((currentCount) => currentCount * 2)}>
-        Double
+        x2
       </button>
       <button onClick={() => setCount((currentCount) => currentCount + 1)}>
-        Increment
+        +1
       </button>
-      <button onClick={back}>Back</button>
-      <button onClick={forward}>Forward</button>
-      <button onClick={() => go(2)}>Go To Index 2</button>
-      <button onClick={() => setName("John")}>Change Name</button>
+      <button onClick={back}>戻る</button>
+      <button onClick={forward}>進む</button>
+      <button onClick={() => go(2)}>インデックス2に移動</button>
+      <button onClick={() => setName("John")}>再レンダリング(名前変更)</button>
     </div>
   );
 };
