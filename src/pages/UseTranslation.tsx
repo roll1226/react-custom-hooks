@@ -10,9 +10,11 @@ const UseTranslation: FC = () => {
       <div>{t("hi") as string}</div>
       <div>{t("bye") as string}</div>
       <div>{t("nested.value") as string}</div>
-      <button onClick={() => setLanguage("ja")}>Change To Japanese</button>
-      <button onClick={() => setLanguage("en")}>Change To English</button>
-      <button onClick={() => setFallbackLanguage("ja")}>Change FB Lang</button>
+      <button onClick={() => setLanguage("ja")}>日本語に変更</button>
+      <button onClick={() => setLanguage("en")}>英語に変更</button>
+      <button onClick={() => setFallbackLanguage("ja")}>
+        フォールバック言語(日本語)
+      </button>
     </div>
   );
 };
