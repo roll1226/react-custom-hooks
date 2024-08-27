@@ -8,6 +8,7 @@ describe("useEventListener", () => {
 
     renderHook(() => useEventListener("resize", mockCallback));
 
+    // Trigger the resize event
     fireEvent(window, new Event("resize"));
 
     expect(mockCallback).toHaveBeenCalledTimes(1);
@@ -18,6 +19,8 @@ describe("useEventListener", () => {
     const div = document.createElement("div");
 
     renderHook(() => useEventListener("click", mockCallback, div));
+
+    fireEvent.click(div);
 
     expect(mockCallback).toHaveBeenCalledTimes(1);
   });
