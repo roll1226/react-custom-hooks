@@ -72,8 +72,6 @@ describe("useLongPress", () => {
       ref.current?.dispatchEvent(new TouchEvent("touchend"));
     });
 
-    expect(
-      useTimeout(() => console.log("clear"),0).clear
-    ).toHaveBeenCalled();
+    expect(useTimeout(() => console.log("clear"), 0).clear).toHaveBeenCalled();
   });
 });
