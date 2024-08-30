@@ -54,7 +54,7 @@ export const links: link[] = [
   },
   {
     to: "use-one-screen",
-    name: "UseOneScreen",
+    name: "UseOnScreen",
   },
   {
     to: "use-online-status",
