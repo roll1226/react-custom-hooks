@@ -6,7 +6,7 @@ const UseOnScreen: FC = () => {
   const visible = useOnScreen(headerTwoRef, "-100px");
 
   return (
-    <div>
+    <div style={{ paddingTop: 500 }}>
       <h1>Header</h1>
       <div>...</div>
       <h1 ref={headerTwoRef}>Header 2 {visible && "(Visible)"}</h1>
