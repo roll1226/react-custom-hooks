@@ -2,6 +2,6 @@
   "hi": "Hello",
   "bye": "Goodbye",
   "nested": {
-    "value": "Test"
+    "value": "This is a nested message"
   }
 }
