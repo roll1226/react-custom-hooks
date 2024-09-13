@@ -31,12 +31,28 @@ describe("useArray", () => {
     expect(result.current.array).toEqual([1, 5, 3]);
   });
 
+  it("should not update element if index is out of bounds", () => {
+    const { result } = renderHook(() => useArray([1, 2, 3]));
+    act(() => {
+      result.current.update(5, 5);
+    });
+    expect(result.current.array).toEqual([1, 2, 3, 5]);
+  });
+
   it("should remove element at specified index", () => {
     const { result } = renderHook(() => useArray([1, 2, 3]));
     act(() => {
       result.current.remove(1);
     });
     expect(result.current.array).toEqual([1, 3]);
+  });
+
+  it("should not remove element if index is out of bounds", () => {
+    const { result } = renderHook(() => useArray([1, 2, 3]));
+    act(() => {
+      result.current.remove(5);
+    });
+    expect(result.current.array).toEqual([1, 2, 3]);
   });
 
   it("should clear all elements", () => {
